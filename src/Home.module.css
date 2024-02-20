@@ -1,0 +1,74 @@
+.rrss{
+    display: grid;
+    grid-template-columns: repeat(4, 40px);
+    grid-template-rows: repeat(1, 40px);
+    padding-top: 30px;
+    gap: 2;
+  }
+
+.golden__box{
+  background-color: #cbb26a;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  top: 240px;
+  right: 140px;
+}
+
+
+.image{
+  position: relative;
+  top: 304px;
+  right: 22px;
+  z-index: 1;
+
+  animation: reveal ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 60%;
+}
+
+.image::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 140px;
+  height: 140px;
+  background-color: #19284c;
+  border-radius: 16px;
+
+  left: 250px;
+  top: 0px;
+}
+
+
+
+.imageDos{  
+  position: relative;
+
+  animation: reveal ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 60%;
+}
+
+.imageDos::before{
+content: "";
+position: absolute;
+background-color: #cbb26a;
+top: 150px;
+right: 250px;
+border-radius: 16px;
+width: 120px;
+height: 120px;
+}
+
+@keyframes reveal {
+from{
+  opacity: 0;
+}  
+to{
+  opacity: 1;
+}
+} 
+
+
