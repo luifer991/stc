@@ -5,7 +5,7 @@ The page of STC it is an application for self-defense system
 
 ## Authors
 
-- [@luifer991](https://www.github.com/octokatherine)
+- [@luifer991](https://github.com/luifer991)
 
 
 ## Used By
