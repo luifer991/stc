@@ -24,7 +24,7 @@
 
   animation: reveal ease-in-out both;
   animation-timeline: view();
-  animation-range: entry 20% cover 60%;
+  animation-range: entry 15% cover 30%;
 }
 
 .image::before{
@@ -48,7 +48,7 @@
 
   animation: reveal ease-in-out both;
   animation-timeline: view();
-  animation-range: entry 20% cover 60%;
+  animation-range: entry 15% cover 30%;
 }
 
 .imageDos::before{

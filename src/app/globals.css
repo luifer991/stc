@@ -416,8 +416,6 @@ border-top-left-radius: 70px;
 border-bottom-left-radius: 70px;
 margin-left: -20px;
 
-
-
 box-shadow: 2px 4px 10px 2px var(--shadows);
 position: relative;
 border: 3px solid var(--border-card);
@@ -426,7 +424,7 @@ overflow: visible;
 
 animation: motion linear both;
 animation-timeline: view();
-animation-range: entry 20% cover 40%;
+animation-range: entry 10% cover 20%;
 }
 
 .grid-item:hover {
@@ -439,7 +437,6 @@ transform: translate(-40%, 40%);
 opacity: 1;
 cursor: pointer;
 }
-
 
 .grid-item .icon{
   width: 80px;

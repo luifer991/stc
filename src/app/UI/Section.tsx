@@ -1,9 +1,9 @@
+'use client'
 import Image from "next/image";
-import Button from "../Components/Button";
 import Card from "../Components/Card";
 import { libreBaskerville } from "../Components/fonts";
 import styles from "@/Home.module.css";
-import Link from "next/link";
+import { motion } from "framer-motion";
 
 export type SectionProps = {
     text: string;
@@ -20,6 +20,28 @@ export type SectionProps = {
     imageTop: string;
     altThreeTop: string;
 };
+
+const variant = {
+    visible :{
+        opacity: 1,
+        transition: {
+            when: "beforeChildren",
+            ease: "easeInOut",
+            delayChildren:0.2
+        },   
+    },
+    hidden: {
+        opacity: 0,
+        transition: {
+            when: "afterChildren",
+        },
+    },
+}
+
+const item = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 20 },      
+}
 
 function Section({
     text,
@@ -38,16 +60,21 @@ function Section({
 }: SectionProps) {
     return (
         <section className="flex flex-shrink mt-[100px] mb-[100px] h-screen max-w-[960px] mx-auto">
-            <article className="block text-start w-[410px]">
-                <p className="text-base text-[#cbb26a]">{text}</p>
-                <h2 className="pt-8 pb-8 text-[42px] leading-[1.1] text-[#ffffffcc] w-full">
+            <motion.article initial="hidden" whileInView="visible" variants={variant} className="block text-start w-[410px]">
+                <motion.p 
+                variants={item}
+                className="text-base text-[#cbb26a]">{text}</motion.p>
+                <motion.h2 
+                variants={item}
+                className="pt-8 pb-8 text-[42px] leading-[1.1] text-[#ffffffcc] w-full">
                     {title}
-                </h2>
-                <h4
-                    className={` text-base w-full text-[#ffffff99] ${libreBaskerville.className}`}
+                </motion.h2>
+                <motion.h4
+                variants={item}               
+                className={`text-base w-full text-[#ffffff99] ${libreBaskerville.className}`}
                 >
                     {body}
-                </h4>
+                </motion.h4>
 
                 <div className="grid">
                     <Card
@@ -67,7 +94,7 @@ function Section({
                         body={bodyThree}
                     />
                 </div>
-            </article>
+            </motion.article>
             <div className="flex flex-shrink ml-[80px] w-[510px] h-[600px]">
                 <div className={styles.image}>
                     <Image
