@@ -31,25 +31,24 @@ function useQuery() {
 function NewsLetter() {
     const { query, setQuery, error } = useQuery()
 
+    // Función para enviar datos del formulario a Supabase
+    const submitFormData = async (formData: any) => {
+        try {
+            const { data, error } = await supabase.from('table_name').insert([formData]);
+            if (error) {
+                throw error;
+            }
+            console.log('Data inserted successfully:', data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        try {
-            const response = await fetch('/api/user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(query),
-            });
-            if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-            }
-        } catch (error) {
-            console.error(error);
-        }
+        const data = Object.fromEntries(new window.FormData(event.target));
+        await submitFormData(data);
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
