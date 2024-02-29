@@ -1,4 +1,3 @@
-import { supabaseKey, supabaseUrl } from "@/lib/api";
 import { text } from "stream/consumers";
 
 const GET = () => {

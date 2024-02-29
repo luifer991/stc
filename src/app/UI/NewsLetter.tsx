@@ -1,59 +1,44 @@
-'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 import { libreBaskerville } from '../Components/fonts'
 import supabase from '@/lib/api'
+import { revalidatePath } from 'next/cache'
 
-function useQuery() {
-    const [query, setQuery] = useState('')
-    const [error, setError] = useState('')
-    const isFirstInput = useRef(true)
-
-    useEffect(() => {
-        if (isFirstInput.current) {
-            isFirstInput.current = query === ''
-            return
-        }
-        if (query === '') {
-            setError('No puedes dejar este campo vacío')
-            return
-        }
-        if (!query.match(/@/)) {
-            setError('el email debe tener un @')
-        }
-        if (query.length < 8) {
-            setError('El email debe tener al menos 8 caracteres')
-        }
-    }, [query])
-    return { query, setQuery, error }
-}
+// function useQuery() {
+//     const [query, setQuery] = useState('')
+//     const [error, setError] = useState('')
+//     const isFirstInput = useRef(true)
+    
+//     useEffect(() => {
+//         if (isFirstInput.current) {
+//             isFirstInput.current = query === ''
+//             return
+//         }
+//         if (query === '') {
+//             setError('No puedes dejar este campo vacío')
+//             return
+//         }
+//         if (!query.match(/@/)) {
+//             setError('el email debe tener un @')
+//         }
+//         if (query.length < 8) {
+//             setError('El email debe tener al menos 8 caracteres')
+//         }
+//     }, [query])
+//     return { query, setQuery, error }
+// }
 
 
 function NewsLetter() {
-    const { query, setQuery, error } = useQuery()
+    //const { query, setQuery, error } = useQuery()
 
-    // Función para enviar datos del formulario a Supabase
-    const submitFormData = async (formData: any) => {
-        try {
-            const { data, error } = await supabase.from('table_name').insert([formData]);
-            if (error) {
-                throw error;
-            }
-            console.log('Data inserted successfully:', data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    const addEmail = async (formData: FormData) => {
+        "use server"
+        const email = formData.get('email')
+        const { error } = await supabase.from('newsletter').insert({ email:  email as String })
 
-
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        const data = Object.fromEntries(new window.FormData(event.target));
-        await submitFormData(data);
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(event.target.value)
-    }
 
     return (
         <>
@@ -71,17 +56,16 @@ function NewsLetter() {
                 </div>
                 <div className='form'>
                     <form
-                        action='mailto:correo@ejemplo.com'
+                        action={addEmail}
                         method='post'
                         encType='text/plain'
-                        onSubmit={handleSubmit}
                     >
-                        <input onChange={handleChange} value={query} required type='email' name='text' className={`input`} />
+                        <input  required type='email' name='email' className={`input`} />
                         <label className='label'>Email</label>
                         <button type='submit' className='send-btn'>
                             Enviar
                         </button>
-                        {error && <p style={{ color: 'red' }}>{error}</p>}
+                        {/*error && <p style={{ color: 'red' }}>{error}</p>*/}
                     </form>
                 </div>
                 <p
