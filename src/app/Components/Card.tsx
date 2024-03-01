@@ -18,7 +18,7 @@ function Card({
                 <Image className={img} src={icon} alt={alt} width={80} height={80} />
                 <div className={div}>
                     <p className={p}>{body}</p>
-                    <Button classb='card-button' text='Aprender Más' />
+                    <Button classb='card-button' text='¡Empezar Ya!' />
                 </div>
             </section>
         </>

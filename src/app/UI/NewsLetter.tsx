@@ -1,26 +1,11 @@
-import { supabase } from '@/lib/supabase'
 import { libreBaskerville } from '../Components/fonts'
+import { addEmail } from '@/lib/actions'
 
 
 function NewsLetter() {
-
-    const addEmail = async (formData: FormData) => {
-        "use server"
-        const email = formData.get('email')
-        const { data, error } = await supabase.from('newsletter').insert([{ email: email }])
-
-        if (data) {
-            console.log(data)
-        }
-        if (error) {
-            console.log(error)
-        }
-    }
-
-
     return (
         <>
-            <section className='block justify-center items-center text-start bg-[url(/jiuJitsu.png)] bg-no-repeat bg-center bg-cover scale-90 mx-12 my-0 h-full w-full p-12 md:bg-inherit' >
+            <section className='lg:block lg:justify-center items-center text-start bg-[url(/jiuJitsu.png)] bg-no-repeat bg-center bg-cover h-full w-full px-12 py-12' >
                 <div className='max-w-[600px]' >
                     <h2 className='pb-8 justify-center text-start text-5xl text-[#cbb26acc] md:pb-[30px]' >
                         Manténgase al día con el Newsletter de STC

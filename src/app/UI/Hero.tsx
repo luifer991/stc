@@ -17,8 +17,7 @@ function Hero() {
             </p>
           </Title>
           <div className="pl-8 pt-0 mt-0 w-[700px]">
-            <Button classb="l-btn" text="Aprender Más" />
-            <Button classb="s-btn" text="Suscribete" />
+            <Button classb="l-btn" text="¡Empezar Ya!" />
           </div>
         </article>
       </div>
