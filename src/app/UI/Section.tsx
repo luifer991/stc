@@ -4,31 +4,16 @@ import Card from "../Components/Card";
 import { libreBaskerville } from "../Components/fonts";
 import styles from "@/Home.module.css";
 import { motion } from "framer-motion";
-
-export type SectionProps = {
-    text: string;
-    title: string;
-    body: string;
-    alt: string;
-    icon: string;
-    image: string;
-    iconTwo: string;
-    altTwo: string;
-    altThree: string;
-    bodyTwo: string;
-    bodyThree: string;
-    imageTop: string;
-    altThreeTop: string;
-};
+import { SectionProps } from "@/lib/definitions";
 
 const variant = {
-    visible :{
+    visible: {
         opacity: 1,
         transition: {
             when: "beforeChildren",
             ease: "easeInOut",
-            delayChildren:0.2
-        },   
+            delayChildren: 0.2
+        },
     },
     hidden: {
         opacity: 0,
@@ -39,8 +24,8 @@ const variant = {
 }
 
 const item = {
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 20 },      
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 20 },
 }
 
 function Section({
@@ -61,17 +46,17 @@ function Section({
     return (
         <section className="flex flex-shrink mt-[100px] mb-[100px] h-screen max-w-[960px] mx-auto">
             <motion.article initial="hidden" whileInView="visible" variants={variant} className="block text-start w-[410px]">
-                <motion.p 
-                variants={item}
-                className="text-base text-[#cbb26a]">{text}</motion.p>
-                <motion.h2 
-                variants={item}
-                className="pt-8 pb-8 text-[42px] leading-[1.1] text-[#ffffffcc] w-full">
+                <motion.p
+                    variants={item}
+                    className="text-base text-[#cbb26a]">{text}</motion.p>
+                <motion.h2
+                    variants={item}
+                    className="pt-8 pb-8 text-[42px] leading-[1.1] text-[#ffffffcc] w-full">
                     {title}
                 </motion.h2>
                 <motion.h4
-                variants={item}               
-                className={`text-base w-full text-[#ffffff99] ${libreBaskerville.className}`}
+                    variants={item}
+                    className={`text-base w-full text-[#ffffff99] ${libreBaskerville.className}`}
                 >
                     {body}
                 </motion.h4>

@@ -1,10 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { ButtonProps } from '@/lib/definitions';
 
-type ButtonProps = {
-    classb: string
-    text: string
-}
 
 function Button({ classb, text }: ButtonProps) {
   return (

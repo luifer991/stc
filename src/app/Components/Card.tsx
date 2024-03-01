@@ -1,16 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Button from './Button'
-
-type CardProps = {
-    icon: string
-    alt: string
-    body: string
-    sect: string
-    img: string
-    div?: string
-    p: string
-}
+import { CardProps } from "@/lib/definitions"
 
 function Card({
     icon,
