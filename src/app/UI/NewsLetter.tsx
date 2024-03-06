@@ -17,7 +17,7 @@ function NewsLetter() {
                 </div>
                 <div className='form'>
                     <form action={addEmail}>
-                        <input required type='email' name='email' className={`input`} />
+                        <input type='email' name='email' required className={`input`} />
                         <label className='label'>Email</label>
                         <button type='submit' className='send-btn'>
                             Enviar
