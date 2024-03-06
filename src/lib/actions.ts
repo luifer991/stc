@@ -1,8 +1,16 @@
 import { supabase } from "./supabase"
+import { z } from 'zod'
+
+const emailSchema = z.object({
+    email: z.string().email()
+})
 
 export async function addEmail(formData: FormData) {
     "use server"
-    const email = formData.get('email')
+    const { email } = emailSchema.parse({
+        email: formData.get('email')
+    })
+
     const { data, error } = await supabase.from('newsletter').insert([{ email: email }])
 
     if (data) {
