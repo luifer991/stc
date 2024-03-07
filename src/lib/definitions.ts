@@ -28,3 +28,12 @@ export type ButtonProps = {
     classb: string
     text: string
 }
+
+export type TitleProps = {
+    first: string,
+    spanOne?: string,
+    SpanTwo?: string,
+    second?: string,
+    third?: string
+    w?: string
+}
