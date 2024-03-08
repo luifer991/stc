@@ -15,7 +15,7 @@ function Hero() {
             second='la violencia'
             third='STC es un programa dedicado a promover soluciones adaptables que ayuden a sus usuarios a prevenir la violencia en cualquier situación.'
           />
-          <div className="pl-8 pt-0 mt-0 w-[700px]">
+          <div className="pl-12 pt-0 mt-0 w-[700px]">
             <Button classb="l-btn" text="¡Empezar Ya!" />
           </div>
         </article>
