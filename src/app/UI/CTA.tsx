@@ -11,7 +11,7 @@ function Cta() {
                 <p className="font-['Libre_Baskerville'] max-w-[400px]">Promover la Seguridad y Crear Comunidades más Seguras</p>
               </div>
               <div className="pt-0 mt-0">
-                  <Button classb="s-btn" text="¡Empezar Ya!" />
+                  <Button classb="l-btn" text="¡Empezar Ya!" />
               </div>
             </article>
             
