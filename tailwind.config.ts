@@ -25,6 +25,8 @@ const config: Config = {
         "golden": "#cbb26a",
         "clear-gold": "#d8c690",
         "gray-stc": "#747474",
+        "title-color": "#ffffffcc",
+        "p-color": "#ffffff99",
       }
     },
   },
