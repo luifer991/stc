@@ -45,7 +45,7 @@ function Section({
     altThreeTop = ''
 }: SectionProps) {
     return (
-        <section className="flex flex-shrink mt-[100px] mb-[100px] h-screen max-w-[960px] mx-auto">
+        <section className="block lg:flex lg:flex-shrink lg:mt-[100px] lg:mb-[100px] lg:h-screen lg:max-w-[960px] lg:mx-auto">
             <motion.article initial="hidden" whileInView="visible" variants={variant} className="block text-start w-[410px]">
                 <motion.p
                     variants={item}
@@ -92,15 +92,13 @@ function Section({
                     />
                 </div>
                 <div className={styles.imageDos}>
-                    <Image
-                        className="rounded-[32px] w-[230x] h-[280px]"
+                    <Image className="rounded-[32px] w-[230x] h-[280px]"
                         src={imageTop}
                         alt={altThreeTop}
                         width={230}
                         height={300}
                     />
                 </div>
-
             </div>
         </section>
     );
