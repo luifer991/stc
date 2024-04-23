@@ -1,4 +1,4 @@
-export type SectionProps = {
+export interface SectionProps {
     text: string;
     title: string;
     body: string;
@@ -14,7 +14,7 @@ export type SectionProps = {
     altThreeTop: string;
 };
 
-export type CardProps = {
+export interface CardProps {
     icon: string
     alt: string
     body: string
@@ -24,12 +24,12 @@ export type CardProps = {
     p: string
 }
 
-export type ButtonProps = {
+export interface ButtonProps {
     classb: string
     text: string
 }
 
-export type TitleProps = {
+export interface TitleProps {
     first: string,
     spanOne?: string,
     SpanTwo?: string,
